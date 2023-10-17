@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --scroll: 0;
+}
+
+.wrapper {
+    background-color: yellowgreen;
+    animation: sectionColor 1s linear;
+}
+
+.section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100svh;
+}
+
+.section h1 {
+    color: #FFFFFF;
+    font-size: 2rem;
+}
+
+
+@keyframes sectionColor {
+    0%   {background-color: yellowgreen;}
+    25%  {background-color: orangered;}
+    50%  {background-color: red;}
+    100% {background-color: purple;}
+}
+
+/* set the scroll-related animation properties on the :root */
+:root * {
+    /* Pause the animation */
+    animation-play-state: paused;
+    /* Bind the animation to scroll */
+    animation-delay: calc(var(--scroll) * -1s);
+    /* These last 2 properties clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
