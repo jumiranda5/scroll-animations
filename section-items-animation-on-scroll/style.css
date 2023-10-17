@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --scroll: 0;
+}
+
+.wrapper {
+    background-color: yellowgreen;
+    animation: sectionColor 1s linear;
+}
+
+.section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    height: 100svh;
+}
+
+.section1 { background-color: yellowgreen; }
+.section2 { background-color: orange; }
+.section3 { background-color: red; }
+.section4 { background-color: purple; }
+
+.section h1 {
+    font-size: 4rem;
+    color: #FFFFFF;
+}
+
+.section1-title {
+    animation: section1TitleAnimation 1s linear;
+}
+
+.section2-title {
+    transform: translate(-100vw, -50vh);
+    animation: section2TitleAnimation 1s linear;
+}
+
+.section3-title {
+    animation: section3TitleAnimation 1s linear;
+}
+
+.section4-title {
+    animation: section4TitleAnimation 1s linear;
+}
+
+@keyframes section1TitleAnimation {
+    0%  {
+        transform: rotateX(0deg) rotateZ(0deg) rotateY(0deg);
+        opacity: 1;
+        scale: 1;
+    }
+    12%  {
+        transform: rotateX(360deg) rotateZ(45deg) rotateY(-45deg);
+        opacity: 0;
+        scale: 0;
+    }
+}
+
+@keyframes section2TitleAnimation {
+    0%  {
+        transform: translate(-100vw, -50vh);
+        opacity: 0;
+    }
+    16%  {
+        transform: translate(-100vw, -50vh);
+        opacity: 0;
+    }
+    30%  {
+        transform: translate(0vw, 0vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0vw, 0vh);
+        opacity: 1;
+    }
+}
+
+@keyframes section3TitleAnimation {
+    0%  {
+        transform: translate(0, -50vh) scale(.5);
+        opacity: 0;
+    }
+    45%  {
+        transform: translate(0, -50vh) scale(.5);
+        opacity: 0;
+    }
+    60%  {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes section4TitleAnimation {
+    0%  {
+        transform: translate(0, 100vh) scale(0);
+        opacity: 0;
+    }
+    75%  {
+        transform: translate(0, 100vh) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* set the scroll-related animation properties on the :root */
+:root * {
+    /* Pause the animation */
+    animation-play-state: paused;
+    /* Bind the animation to scroll */
+    animation-delay: calc(var(--scroll) * -1s);
+    /* These last 2 properties clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
